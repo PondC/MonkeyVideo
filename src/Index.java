@@ -20,6 +20,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
@@ -28,6 +30,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
@@ -36,7 +42,7 @@ public class Index extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -76,8 +82,9 @@ public class Index extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				if (arg0.getKeyChar() == '\n') {
+					String id = textField.getText();
 					textField.setText("");
-					run();
+					run(id);
 				}
 			}
 		});
@@ -240,7 +247,9 @@ public class Index extends JFrame {
 		button_11.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				run();
+				String id = textField.getText();
+				textField.setText("");
+				run(id);
 			}
 		});
 		button_11.setBackground(Color.WHITE);
@@ -250,7 +259,30 @@ public class Index extends JFrame {
 		contentPane.add(button_11);
 	}
 	
-	public void run() {
-		Menu.main(null);
+	public void run(String id) {
+		boolean inDB = checkInDB(id);
+		if (id.length() != 6 && (id.charAt(id.length() - 1) != '1' || id.charAt(id.length() - 1) != '2') && inDB) {
+			JOptionPane.showMessageDialog(null, "Wrong student ID", "Error: ID input not found", JOptionPane.INFORMATION_MESSAGE);
+			textField.setText("");
+			return;
+		}
+		this.setVisible(false);
+		String[] input = {id};
+		Menu.main(input);
+		this.setVisible(true);
+	}
+	
+	public boolean checkInDB(String id) {
+		String subject = (id.charAt(id.length() - 1) == '1') ? "Math" : "Physics";
+		ArrayList<File> listFile;
+		try {
+			System.out.println("\\\\monkeycloud\\vdo\\" + id.substring(0, id.length() - 1) + "\\" + subject);
+			File folder = new File("\\\\monkeycloud\\vdo\\" + id.substring(0, id.length() - 1) + "\\" + subject);
+			System.out.println("Pass");
+			return true;
+		} catch (Exception e) {
+			System.out.println("Fail");
+			return false;
+		}
 	}
 }
