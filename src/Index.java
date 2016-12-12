@@ -66,12 +66,21 @@ public class Index extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		/**
+		 * Label for the textField
+		 */
 		JLabel lblEnterStudentId = new JLabel("Enter Student ID");
 		lblEnterStudentId.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEnterStudentId.setFont(new Font("Cordia New", Font.PLAIN, 38));
 		lblEnterStudentId.setBounds(144, 94, 209, 50);
 		contentPane.add(lblEnterStudentId);
 		
+		
+		/**
+		 * TextField to enter the student id
+		 * contain checking for the enter key expected bar code scanner
+		 * calling method run()
+		 */
 		textField = new JTextField();
 		textField.addKeyListener(new KeyAdapter() {
 			@Override
@@ -89,6 +98,9 @@ public class Index extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		/**
+		 * Button show number 1 and add character '1' to the current String contained in the textField
+		 */
 		JButton button = new JButton("1");
 		button.setBackground(Color.WHITE);
 		button.setForeground(Color.BLACK);
@@ -102,6 +114,9 @@ public class Index extends JFrame {
 		button.setBounds(574, 43, 70, 70);
 		contentPane.add(button);
 		
+		/**
+		 * Button show number 2 and add character '2' to the current String contained in the textField
+		 */
 		JButton button_1 = new JButton("2");
 		button_1.setBackground(Color.WHITE);
 		button_1.setForeground(Color.BLACK);
@@ -115,6 +130,9 @@ public class Index extends JFrame {
 		button_1.setBounds(680, 43, 70, 70);
 		contentPane.add(button_1);
 		
+		/**
+		 * Button show number 3 and add character '3' to the current String contained in the textField
+		 */
 		JButton button_2 = new JButton("3");
 		button_2.setBackground(Color.WHITE);
 		button_2.setForeground(Color.BLACK);
@@ -128,6 +146,9 @@ public class Index extends JFrame {
 		button_2.setBounds(788, 45, 70, 70);
 		contentPane.add(button_2);
 		
+		/**
+		 * Button show number 4 and add character '4' to the current String contained in the textField
+		 */
 		JButton button_3 = new JButton("4");
 		button_3.setBackground(Color.WHITE);
 		button_3.setForeground(Color.BLACK);
@@ -141,6 +162,9 @@ public class Index extends JFrame {
 		button_3.setBounds(574, 147, 70, 70);
 		contentPane.add(button_3);
 		
+		/**
+		 * Button show number 5 and add character '5' to the current String contained in the textField
+		 */
 		JButton button_4 = new JButton("5");
 		button_4.setBackground(Color.WHITE);
 		button_4.setForeground(Color.BLACK);
@@ -154,6 +178,9 @@ public class Index extends JFrame {
 		button_4.setBounds(680, 147, 70, 70);
 		contentPane.add(button_4);
 		
+		/**
+		 * Button show number 6 and add character '6' to the current String contained in the textField
+		 */
 		JButton button_5 = new JButton("6");
 		button_5.setBackground(Color.WHITE);
 		button_5.setForeground(Color.BLACK);
@@ -167,6 +194,9 @@ public class Index extends JFrame {
 		button_5.setBounds(788, 147, 70, 70);
 		contentPane.add(button_5);
 		
+		/**
+		 * Button show number 7 and add character '7' to the current String contained in the textField
+		 */
 		JButton button_6 = new JButton("7");
 		button_6.setBackground(Color.WHITE);
 		button_6.setForeground(Color.BLACK);
@@ -180,6 +210,9 @@ public class Index extends JFrame {
 		button_6.setBounds(574, 249, 70, 70);
 		contentPane.add(button_6);
 		
+		/**
+		 * Button show number 8 and add character '8' to the current String contained in the textField
+		 */
 		JButton button_7 = new JButton("8");
 		button_7.addMouseListener(new MouseAdapter() {
 			@Override
@@ -193,6 +226,9 @@ public class Index extends JFrame {
 		button_7.setBounds(680, 249, 70, 70);
 		contentPane.add(button_7);
 		
+		/**
+		 * Button show number 9 and add character '9' to the current String contained in the textField
+		 */
 		JButton button_8 = new JButton("9");
 		button_8.addMouseListener(new MouseAdapter() {
 			@Override
@@ -206,6 +242,9 @@ public class Index extends JFrame {
 		button_8.setBounds(788, 249, 70, 70);
 		contentPane.add(button_8);
 		
+		/**
+		 * Button show "D" stand for delete (expected to be change to be a graphic picture) and delete one most right character from the current String contained in the textField
+		 */
 		JButton button_9 = new JButton("d");
 		button_9.addMouseListener(new MouseAdapter() {
 			@Override
@@ -225,6 +264,9 @@ public class Index extends JFrame {
 		button_9.setBounds(574, 345, 70, 70);
 		contentPane.add(button_9);
 		
+		/**
+		 * Button show number 0 and add character '0' to the current String contained in the textField
+		 */
 		JButton button_10 = new JButton("0");
 		button_10.addMouseListener(new MouseAdapter() {
 			@Override
@@ -238,6 +280,9 @@ public class Index extends JFrame {
 		button_10.setBounds(680, 345, 70, 70);
 		contentPane.add(button_10);
 		
+		/**
+		 * Button show "E" stand for enter (expected to be change to be a graphic picture) and call run()
+		 */
 		JButton button_11 = new JButton("e");
 		button_11.addMouseListener(new MouseAdapter() {
 			@Override
