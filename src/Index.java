@@ -26,14 +26,9 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
@@ -259,8 +254,11 @@ public class Index extends JFrame {
 		contentPane.add(button_11);
 	}
 	
+	/**
+	 * Method which run the Menu class that contain the select VDO page
+	 * @param id Student id referred to the folder of that student
+	 */
 	public void run(String id) {
-		boolean inDB = checkInDB(id);
 		if (!isValid(id)) {
 			JOptionPane.showMessageDialog(null, "Wrong student ID", "Error: ID input not found", JOptionPane.INFORMATION_MESSAGE);
 			textField.setText("");
@@ -272,6 +270,11 @@ public class Index extends JFrame {
 		this.setVisible(true);
 	}
 	
+	/**
+	 * Check if the id is in the correct pattern by checking length, the last character of the id and whether that student id is in the database
+	 * @param id Student id want to check if the pattern is correct
+	 * @return Boolean indicate the student id is in the correct pattern
+	 */
 	public boolean isValid(String id) {
 		if (id.length() == 6 && (id.charAt(id.length() - 1) == '1' || id.charAt(id.length() - 1) == '2') && checkInDB(id)) {
 			return true;
@@ -279,6 +282,11 @@ public class Index extends JFrame {
 		return false;
 	}
 	
+	/**
+	 * Verify that input student id is in the database of VDO in MOKEYCLOUD
+	 * @param id Student id referred to the folder in the VDO folder ion the database
+	 * @return Boolean whether student id is in the database
+	 */
 	public boolean checkInDB(String id) {
 		String subject = (id.charAt(id.length() - 1) == '1') ? "Math" : "Physics";
 		try {

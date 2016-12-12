@@ -5,6 +5,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.io.File;
+import java.util.ArrayList;
+
 import javax.swing.JButton;
 
 public class Menu extends JFrame {
@@ -74,5 +77,16 @@ public class Menu extends JFrame {
 		JButton btnVdo_6 = new JButton("VDO6");
 		btnVdo_6.setBounds(758, 360, 159, 93);
 		contentPane.add(btnVdo_6);
+	}
+	
+	public ArrayList<String> getFileInFolder(String id) {
+		String subject = (id.charAt(id.length() - 1) == '1') ? "Math" : "Physics";
+		File folder = new File("\\\\monkeycloud\\vdo\\" + id.substring(0, id.length() - 1) + "\\" + subject);
+		ArrayList<String> listOfFileName = new ArrayList<String>();
+		File[] listOfFiles = folder.listFiles();
+		for (int i = 0; i < listOfFiles.length; i++) {
+			listOfFileName.add(listOfFiles[i].getName());
+		}
+		return listOfFileName;
 	}
 }
