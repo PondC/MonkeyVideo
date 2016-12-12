@@ -102,9 +102,9 @@ public class Menu extends JFrame {
 		contentPane.add(btnVdo_6);
 	}
 	
-	public ArrayList<String> getFileInFolder(String id) {
+	public ArrayList<String> getFileNameInFolder(String id) {
 		String subject = (id.charAt(id.length() - 1) == '1') ? "Math" : "Physics";
-		File folder = new File("\\\\monkeycloud\\vdo\\" + id.substring(0, id.length() - 1) + "\\" + subject);
+		File folder = new File("\\\\" + Index.DB_LOCATION + "\\vdo\\" + id.substring(0, id.length() - 1) + "\\" + subject);
 		ArrayList<String> listOfFileName = new ArrayList<String>();
 		File[] listOfFiles = folder.listFiles();
 		for (int i = 0; i < listOfFiles.length; i++) {
