@@ -1,6 +1,4 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,6 +14,7 @@ public class Menu extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -28,7 +27,7 @@ public class Menu extends JFrame {
 			}
 		});
 	}
-
+	
 	/**
 	 * Create the frame.
 	 */

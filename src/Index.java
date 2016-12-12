@@ -261,7 +261,7 @@ public class Index extends JFrame {
 	
 	public void run(String id) {
 		boolean inDB = checkInDB(id);
-		if (id.length() != 6 && (id.charAt(id.length() - 1) != '1' || id.charAt(id.length() - 1) != '2') && inDB) {
+		if (!isValid(id)) {
 			JOptionPane.showMessageDialog(null, "Wrong student ID", "Error: ID input not found", JOptionPane.INFORMATION_MESSAGE);
 			textField.setText("");
 			return;
@@ -272,16 +272,29 @@ public class Index extends JFrame {
 		this.setVisible(true);
 	}
 	
+	public boolean isValid(String id) {
+		if (id.length() == 6 && (id.charAt(id.length() - 1) == '1' || id.charAt(id.length() - 1) == '2') && checkInDB(id)) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean checkInDB(String id) {
 		String subject = (id.charAt(id.length() - 1) == '1') ? "Math" : "Physics";
-		ArrayList<File> listFile;
 		try {
-			System.out.println("\\\\monkeycloud\\vdo\\" + id.substring(0, id.length() - 1) + "\\" + subject);
 			File folder = new File("\\\\monkeycloud\\vdo\\" + id.substring(0, id.length() - 1) + "\\" + subject);
-			System.out.println("Pass");
+			File[] listOfFiles = folder.listFiles();
+//			System.out.println("Pass");
+			for (int i = 0; i < listOfFiles.length; i++) {
+				if (listOfFiles[i].isFile()) {
+//					System.out.println("File " + listOfFiles[i].getName());
+				} else if (listOfFiles[i].isDirectory()) {
+//					System.out.println("Directory " + listOfFiles[i].getName());
+				}
+			}
 			return true;
 		} catch (Exception e) {
-			System.out.println("Fail");
+//			System.out.println("Fail");
 			return false;
 		}
 	}

@@ -2,7 +2,7 @@ import java.io.File;
 
 public class Test {
 	public static void main(String[] args) {
-		File folder = new File("\\\\monkeycloud\\vdo\\15999\\Math");
+		File folder = new File("\\\\monkeycloud\\vdo\\55447\\Physics");
 		File[] listOfFiles = folder.listFiles();
 		
 		for (int i = 0; i < listOfFiles.length; i++) {
