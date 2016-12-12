@@ -112,7 +112,7 @@ public class Menu extends JFrame {
 		ArrayList<String> fileNameList = getFileNameInFolder(id);
 		for (int i = 0; i < fileName.length; i++) {
 			try {
-				fileName[i] = fileNameList.get(i);
+				fileName[i] = (fileNameList.get(i)).substring(0, fileNameList.get(i).length() - 4);
 			} catch (Exception e) {
 			}
 		}
