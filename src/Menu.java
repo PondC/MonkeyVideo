@@ -1,3 +1,19 @@
+/**
+Copyright [2016] [Chutipon]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+ */
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,6 +25,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class Menu extends JFrame {
 
@@ -35,8 +52,12 @@ public class Menu extends JFrame {
 	 * Create the frame.
 	 */
 	public Menu(String id) {
-		String subject = (id.charAt(id.length() - 1) == '1') ? "Math" : "Physics";
-		
+		String subject = "null";
+		if (id.charAt(id.length() - 1) == '1') {
+			subject = "Math";
+		}else if (id.charAt(id.length() - 1) == '2') {
+			subject = "Physics";
+		}
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 1003, 589);
 		contentPane = new JPanel();
@@ -44,14 +65,16 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblStudentId = new JLabel("Student ID");
+		JLabel lblStudentId = new JLabel(id.substring(0, id.length() - 1));
+		lblStudentId.setHorizontalAlignment(SwingConstants.CENTER);
 		lblStudentId.setFont(new Font("Cordia New", Font.PLAIN, 45));
 		lblStudentId.setBounds(26, 29, 145, 45);
 		contentPane.add(lblStudentId);
 		
-		JLabel lblSubject = new JLabel("Subject");
+		JLabel lblSubject = new JLabel(subject);
+		lblSubject.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSubject.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		lblSubject.setBounds(196, 29, 109, 45);
+		lblSubject.setBounds(175, 31, 109, 45);
 		contentPane.add(lblSubject);
 		
 		JButton btnVdo_1 = new JButton("VDO1");
