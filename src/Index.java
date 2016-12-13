@@ -37,7 +37,7 @@ public class Index extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	public static final String DB_LOCATION = "192.168.1.150";
+	public static final String DB_LOCATION = "\\\\192.168.1.150\\vdo\\";
 	
 	/**
 	 * Launch the application.
@@ -342,7 +342,8 @@ public class Index extends JFrame {
 		}
 //		String subject = (id.charAt(id.length() - 1) == '1') ? "Math" : "Physics";
 		try {
-			File folder = new File("\\\\" + DB_LOCATION + "\\vdo\\" + id.substring(0, id.length() - 1) + "\\" + subject);
+//			File folder = new File("\\\\" + DB_LOCATION + "\\vdo\\" + id.substring(0, id.length() - 1) + "\\" + subject);
+			File folder = new File(DB_LOCATION + id);
 			File[] listOfFiles = folder.listFiles();
 //			System.out.println("Pass");
 			for (int i = 0; i < listOfFiles.length; i++) {

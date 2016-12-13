@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
  */
 
+import java.awt.Desktop;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -22,11 +23,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.print.DocFlavor.STRING;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Menu extends JFrame {
 
@@ -80,28 +83,95 @@ public class Menu extends JFrame {
 		contentPane.add(lblSubject);
 		
 		String[] VDOName = getVDOName(id);
+		ArrayList<File> listOfFiles = getFile(id);
 		
 		JButton btnVdo_1 = new JButton((VDOName[0] == null) ? "No Video" : VDOName[0]);
+		btnVdo_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				try {
+					Desktop.getDesktop().open(listOfFiles.get(0));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		btnVdo_1.setBounds(84, 162, 159, 93);
 		contentPane.add(btnVdo_1);
 		
 		JButton btnVdo_2 = new JButton((VDOName[1] == null) ? "No Video" : VDOName[1]);
+		btnVdo_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					Desktop.getDesktop().open(listOfFiles.get(1));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnVdo_2.setBounds(417, 162, 159, 93);
 		contentPane.add(btnVdo_2);
 		
 		JButton btnVdo_3 = new JButton((VDOName[2] == null) ? "No Video" : VDOName[2]);
+		btnVdo_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					Desktop.getDesktop().open(listOfFiles.get(2));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnVdo_3.setBounds(758, 162, 159, 93);
 		contentPane.add(btnVdo_3);
 		
 		JButton btnVdo_4 = new JButton((VDOName[3] == null) ? "No Video" : VDOName[3]);
+		btnVdo_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					Desktop.getDesktop().open(listOfFiles.get(3));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnVdo_4.setBounds(84, 360, 159, 93);
 		contentPane.add(btnVdo_4);
 		
 		JButton btnVdo_5 = new JButton((VDOName[4] == null) ? "No Video" : VDOName[4]);
+		btnVdo_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					Desktop.getDesktop().open(listOfFiles.get(4));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnVdo_5.setBounds(417, 360, 159, 93);
 		contentPane.add(btnVdo_5);
 		
 		JButton btnVdo_6 = new JButton((VDOName[5] == null) ? "No Video" : VDOName[5]);
+		btnVdo_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					Desktop.getDesktop().open(listOfFiles.get(5));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnVdo_6.setBounds(758, 360, 159, 93);
 		contentPane.add(btnVdo_6);
 	}
@@ -118,14 +188,29 @@ public class Menu extends JFrame {
 		}
 		return fileName;
 	}
-	public ArrayList<String> getFileNameInFolder(String id) {
-		String subject = (id.charAt(id.length() - 1) == '1') ? "Math" : "Physics";
-		File folder = new File("\\\\" + Index.DB_LOCATION + "\\vdo\\" + id.substring(0, id.length() - 1) + "\\" + subject);
-		ArrayList<String> listOfFileName = new ArrayList<String>();
+	
+	public ArrayList<File> getFile(String id) {
+//		String subject = getSubject(id);
+//		File folder = new File(Index.DB_LOCATION + id.substring(0, id.length() - 1) + "\\" + subject);
+		File folder = new File(Index.DB_LOCATION + id);
+		ArrayList<File> listOfFile = new ArrayList<File>();
 		File[] listOfFiles = folder.listFiles();
 		for (int i = 0; i < listOfFiles.length; i++) {
-			listOfFileName.add(listOfFiles[i].getName());
+			listOfFile.add(listOfFiles[i]);
+		}
+		return listOfFile;
+	}
+	
+	public ArrayList<String> getFileNameInFolder(String id) {
+		ArrayList<File> listOfFiles = getFile(id);
+		ArrayList<String> listOfFileName = new ArrayList<String>();
+		for (int i = 0; i < listOfFiles.size(); i++) {
+			listOfFileName.add(listOfFiles.get(i).getName());
 		}
 		return listOfFileName;
 	}
+	
+//	public String getSubject(String id) {
+//		return (id.charAt(id.length() - 1) == '1') ? "Math" : "Physics";
+//	}
 }
