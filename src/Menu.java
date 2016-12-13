@@ -30,6 +30,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
 
 public class Menu extends JFrame {
 
@@ -66,6 +67,7 @@ public class Menu extends JFrame {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 1003, 589);
 		contentPane = new JPanel();
+		contentPane.setBackground((id.charAt(id.length() - 1) == '1') ? new Color(255, 204, 153) : new Color(204, 153, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -86,6 +88,8 @@ public class Menu extends JFrame {
 		ArrayList<File> listOfFiles = getFile(id);
 		
 		JButton btnVdo_1 = new JButton((VDOName[0] == null) ? "No Video" : VDOName[0]);
+		btnVdo_1.setFont(new Font("Cordia New", Font.PLAIN, 35));
+		btnVdo_1.setBackground(Color.WHITE);
 		btnVdo_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -101,6 +105,8 @@ public class Menu extends JFrame {
 		contentPane.add(btnVdo_1);
 		
 		JButton btnVdo_2 = new JButton((VDOName[1] == null) ? "No Video" : VDOName[1]);
+		btnVdo_2.setFont(new Font("Cordia New", Font.PLAIN, 35));
+		btnVdo_2.setBackground(Color.WHITE);
 		btnVdo_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -116,6 +122,8 @@ public class Menu extends JFrame {
 		contentPane.add(btnVdo_2);
 		
 		JButton btnVdo_3 = new JButton((VDOName[2] == null) ? "No Video" : VDOName[2]);
+		btnVdo_3.setFont(new Font("Cordia New", Font.PLAIN, 35));
+		btnVdo_3.setBackground(Color.WHITE);
 		btnVdo_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -131,6 +139,8 @@ public class Menu extends JFrame {
 		contentPane.add(btnVdo_3);
 		
 		JButton btnVdo_4 = new JButton((VDOName[3] == null) ? "No Video" : VDOName[3]);
+		btnVdo_4.setFont(new Font("Cordia New", Font.PLAIN, 35));
+		btnVdo_4.setBackground(Color.WHITE);
 		btnVdo_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -146,6 +156,8 @@ public class Menu extends JFrame {
 		contentPane.add(btnVdo_4);
 		
 		JButton btnVdo_5 = new JButton((VDOName[4] == null) ? "No Video" : VDOName[4]);
+		btnVdo_5.setFont(new Font("Cordia New", Font.PLAIN, 35));
+		btnVdo_5.setBackground(Color.WHITE);
 		btnVdo_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -161,6 +173,8 @@ public class Menu extends JFrame {
 		contentPane.add(btnVdo_5);
 		
 		JButton btnVdo_6 = new JButton((VDOName[5] == null) ? "No Video" : VDOName[5]);
+		btnVdo_6.setFont(new Font("Cordia New", Font.PLAIN, 35));
+		btnVdo_6.setBackground(Color.WHITE);
 		btnVdo_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -182,7 +196,7 @@ public class Menu extends JFrame {
 		ArrayList<String> fileNameList = getFileNameInFolder(id);
 		for (int i = 0; i < fileName.length; i++) {
 			try {
-				fileName[i] = (fileNameList.get(i)).substring(0, fileNameList.get(i).length() - 4);
+				fileName[i] = (fileNameList.get(i)).substring(0, fileNameList.get(i).length() - 7);
 			} catch (Exception e) {
 			}
 		}
