@@ -334,12 +334,12 @@ public class Index extends JFrame {
 	 * @return Boolean whether student id is in the database
 	 */
 	public boolean checkInDB(String id) {
-		String subject = "";
-		if (id.charAt(id.length() - 1) == '1') {
-			subject = "Math";
-		}else if (id.charAt(id.length() - 1) == '2') {
-			subject = "Physics";
-		}
+//		String subject = "";
+//		if (id.charAt(id.length() - 1) == '1') {
+//			subject = "Math";
+//		}else if (id.charAt(id.length() - 1) == '2') {
+//			subject = "Physics";
+//		}
 //		String subject = (id.charAt(id.length() - 1) == '1') ? "Math" : "Physics";
 		try {
 //			File folder = new File("\\\\" + DB_LOCATION + "\\vdo\\" + id.substring(0, id.length() - 1) + "\\" + subject);
