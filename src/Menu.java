@@ -65,7 +65,7 @@ public class Menu extends JFrame {
 		}
 		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 1003, 589);
+		setBounds(100, 100, 1200, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground((id.charAt(id.length() - 1) == '1') ? new Color(255, 204, 153) : new Color(204, 153, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -73,15 +73,15 @@ public class Menu extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblStudentId = new JLabel(id.substring(0, id.length() - 1));
-		lblStudentId.setHorizontalAlignment(SwingConstants.CENTER);
+		lblStudentId.setHorizontalAlignment(SwingConstants.LEFT);
 		lblStudentId.setFont(new Font("Cordia New", Font.PLAIN, 45));
-		lblStudentId.setBounds(26, 29, 145, 45);
+		lblStudentId.setBounds(81, 66, 281, 84);
 		contentPane.add(lblStudentId);
 		
 		JLabel lblSubject = new JLabel(subject);
 		lblSubject.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSubject.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		lblSubject.setBounds(175, 31, 109, 45);
+		lblSubject.setBounds(331, 88, 166, 45);
 		contentPane.add(lblSubject);
 		
 		String[] VDOName = getVDOName(id);
@@ -101,7 +101,7 @@ public class Menu extends JFrame {
 				}
 			}
 		});
-		btnVdo_1.setBounds(84, 162, 159, 93);
+		btnVdo_1.setBounds(81, 201, 300, 150);
 		contentPane.add(btnVdo_1);
 		
 		JButton btnVdo_2 = new JButton((VDOName[1] == null) ? "No Video" : VDOName[1]);
@@ -118,7 +118,7 @@ public class Menu extends JFrame {
 				}
 			}
 		});
-		btnVdo_2.setBounds(417, 162, 159, 93);
+		btnVdo_2.setBounds(453, 201, 300, 150);
 		contentPane.add(btnVdo_2);
 		
 		JButton btnVdo_3 = new JButton((VDOName[2] == null) ? "No Video" : VDOName[2]);
@@ -135,7 +135,7 @@ public class Menu extends JFrame {
 				}
 			}
 		});
-		btnVdo_3.setBounds(758, 162, 159, 93);
+		btnVdo_3.setBounds(830, 201, 300, 150);
 		contentPane.add(btnVdo_3);
 		
 		JButton btnVdo_4 = new JButton((VDOName[3] == null) ? "No Video" : VDOName[3]);
@@ -152,7 +152,7 @@ public class Menu extends JFrame {
 				}
 			}
 		});
-		btnVdo_4.setBounds(84, 360, 159, 93);
+		btnVdo_4.setBounds(81, 489, 300, 150);
 		contentPane.add(btnVdo_4);
 		
 		JButton btnVdo_5 = new JButton((VDOName[4] == null) ? "No Video" : VDOName[4]);
@@ -169,7 +169,7 @@ public class Menu extends JFrame {
 				}
 			}
 		});
-		btnVdo_5.setBounds(417, 360, 159, 93);
+		btnVdo_5.setBounds(453, 489, 300, 150);
 		contentPane.add(btnVdo_5);
 		
 		JButton btnVdo_6 = new JButton((VDOName[5] == null) ? "No Video" : VDOName[5]);
@@ -186,7 +186,7 @@ public class Menu extends JFrame {
 				}
 			}
 		});
-		btnVdo_6.setBounds(758, 360, 159, 93);
+		btnVdo_6.setBounds(830, 489, 300, 150);
 		contentPane.add(btnVdo_6);
 	}
 	
