@@ -23,12 +23,18 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
@@ -60,7 +66,7 @@ public class Index extends JFrame {
 	 */
 	public Index() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 965, 492);
+		setBounds(100, 100, 1280, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.PINK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -72,8 +78,8 @@ public class Index extends JFrame {
 		 */
 		JLabel lblEnterStudentId = new JLabel("Enter Student ID");
 		lblEnterStudentId.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEnterStudentId.setFont(new Font("Cordia New", Font.PLAIN, 38));
-		lblEnterStudentId.setBounds(144, 94, 209, 50);
+		lblEnterStudentId.setFont(new Font("Dialog", Font.PLAIN, 44));
+		lblEnterStudentId.setBounds(146, 231, 441, 79);
 		contentPane.add(lblEnterStudentId);
 		
 		
@@ -94,8 +100,8 @@ public class Index extends JFrame {
 			}
 		});
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setFont(new Font("Cordia New", Font.PLAIN, 50));
-		textField.setBounds(85, 219, 327, 85);
+		textField.setFont(new Font("Dialog", Font.PLAIN, 70));
+		textField.setBounds(50, 414, 633, 130);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
@@ -112,7 +118,7 @@ public class Index extends JFrame {
 			}
 		});
 		button.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button.setBounds(574, 43, 70, 70);
+		button.setBounds(727, 52, 150, 150);
 		contentPane.add(button);
 		
 		/**
@@ -128,7 +134,7 @@ public class Index extends JFrame {
 			}
 		});
 		button_1.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button_1.setBounds(680, 43, 70, 70);
+		button_1.setBounds(902, 52, 150, 150);
 		contentPane.add(button_1);
 		
 		/**
@@ -144,7 +150,7 @@ public class Index extends JFrame {
 			}
 		});
 		button_2.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button_2.setBounds(788, 45, 70, 70);
+		button_2.setBounds(1074, 52, 150, 150);
 		contentPane.add(button_2);
 		
 		/**
@@ -160,7 +166,7 @@ public class Index extends JFrame {
 			}
 		});
 		button_3.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button_3.setBounds(574, 147, 70, 70);
+		button_3.setBounds(727, 240, 150, 150);
 		contentPane.add(button_3);
 		
 		/**
@@ -176,7 +182,7 @@ public class Index extends JFrame {
 			}
 		});
 		button_4.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button_4.setBounds(680, 147, 70, 70);
+		button_4.setBounds(902, 240, 150, 150);
 		contentPane.add(button_4);
 		
 		/**
@@ -192,7 +198,7 @@ public class Index extends JFrame {
 			}
 		});
 		button_5.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button_5.setBounds(788, 147, 70, 70);
+		button_5.setBounds(1074, 238, 150, 150);
 		contentPane.add(button_5);
 		
 		/**
@@ -208,7 +214,7 @@ public class Index extends JFrame {
 			}
 		});
 		button_6.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button_6.setBounds(574, 249, 70, 70);
+		button_6.setBounds(727, 413, 150, 150);
 		contentPane.add(button_6);
 		
 		/**
@@ -224,7 +230,7 @@ public class Index extends JFrame {
 		button_7.setBackground(Color.WHITE);
 		button_7.setForeground(Color.BLACK);
 		button_7.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button_7.setBounds(680, 249, 70, 70);
+		button_7.setBounds(902, 413, 150, 150);
 		contentPane.add(button_7);
 		
 		/**
@@ -240,13 +246,14 @@ public class Index extends JFrame {
 		button_8.setBackground(Color.WHITE);
 		button_8.setForeground(Color.BLACK);
 		button_8.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button_8.setBounds(788, 249, 70, 70);
+		button_8.setBounds(1074, 411, 150, 150);
 		contentPane.add(button_8);
 		
 		/**
 		 * Button show "D" stand for delete (expected to be change to be a graphic picture) and delete one most right character from the current String contained in the textField
 		 */
-		JButton button_9 = new JButton("d");
+		JButton button_9 = new JButton("");
+		button_9.setIcon(new ImageIcon("ic_backspace_black_36dp.png"));
 		button_9.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -262,7 +269,7 @@ public class Index extends JFrame {
 		button_9.setBackground(Color.WHITE);
 		button_9.setForeground(Color.BLACK);
 		button_9.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button_9.setBounds(574, 345, 70, 70);
+		button_9.setBounds(727, 576, 150, 150);
 		contentPane.add(button_9);
 		
 		/**
@@ -278,13 +285,14 @@ public class Index extends JFrame {
 		button_10.setBackground(Color.WHITE);
 		button_10.setForeground(Color.BLACK);
 		button_10.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button_10.setBounds(680, 345, 70, 70);
+		button_10.setBounds(902, 576, 150, 150);
 		contentPane.add(button_10);
 		
 		/**
 		 * Button show "E" stand for enter (expected to be change to be a graphic picture) and call run()
 		 */
-		JButton button_11 = new JButton("e");
+		JButton button_11 = new JButton("");
+		button_11.setIcon(new ImageIcon("ic_send_black_36dp.png"));
 		button_11.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -296,7 +304,7 @@ public class Index extends JFrame {
 		button_11.setBackground(Color.WHITE);
 		button_11.setForeground(Color.BLACK);
 		button_11.setFont(new Font("Cordia New", Font.PLAIN, 40));
-		button_11.setBounds(788, 345, 70, 70);
+		button_11.setBounds(1074, 574, 150, 150);
 		contentPane.add(button_11);
 	}
 	
