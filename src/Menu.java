@@ -32,6 +32,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
 
+@SuppressWarnings("serial")
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
@@ -45,6 +46,7 @@ public class Menu extends JFrame {
 			public void run() {
 				try {
 					Menu frame = new Menu(args[0]);
+//					Menu frame = new Menu("159991");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -210,6 +212,7 @@ public class Menu extends JFrame {
 		ArrayList<File> listOfFile = new ArrayList<File>();
 		File[] listOfFiles = folder.listFiles();
 		for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].getName().equals("log.csv")) continue;
 			listOfFile.add(listOfFiles[i]);
 		}
 		return listOfFile;
